@@ -41,8 +41,8 @@ public class TestingJobs
 		System.out.println("Title: "+ driver.getTitle());
 		Thread.sleep(1000);
 		
-		ScreenShots.createScreenshot(driver, "evidence");
-		Thread.sleep(1000);
+		//ScreenShots.createScreenshot(driver, "evidence");
+		//Thread.sleep(1000);
 
 		List<WebElement> allLinks  = driver.findElements(By.tagName("a"));
 		for(WebElement links: allLinks)
