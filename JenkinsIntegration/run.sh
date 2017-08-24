@@ -1,1 +1,1 @@
-java -cp JenkinsIntegration/bin;JenkinsIntegration/lib/* org.testng.TestNG testng.xml
+java -cp JenkinsIntegration/bin;JenkinsIntegration/lib/* org.testng.TestNG JenkinsIntegration/testng.xml
