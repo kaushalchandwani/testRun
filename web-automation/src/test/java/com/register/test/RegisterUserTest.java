@@ -34,6 +34,7 @@ public class RegisterUserTest
 			driver.manage().window().maximize();
 			Thread.sleep(2000);
 			
+			/*
 			if(driver.getTitle().equalsIgnoreCase("Log in to NHS"))
 			{
 				System.out.println("Login Page");
@@ -53,7 +54,7 @@ public class RegisterUserTest
 			else
 			{
 				throw new NoSuchElementException("Register url not working");
-			}
+			}*/
 			driver.findElement(By.xpath(".//*[@id='email']")).sendKeys(emailId);
 			driver.findElement(By.xpath(".//*[@id='password']")).sendKeys("Welcome123#");
 			driver.findElement(By.xpath(".//*[@id='password-confirm']")).sendKeys("Welcome123#");
