@@ -105,10 +105,11 @@ public class RegisterUserTest
 		//commented for maven 
 		//driver = new ChromeDriver();
 		//System.setProperty("webdriver.chrome.driver", "exe/chromedriver.exe"); //chromedriver.exe set property path
-		System.setProperty("webdriver.gecko.driver", "/usr/bin/iceweasel");
-		DesiredCapabilities firefoxCaps = new DesiredCapabilities().firefox();
-		firefoxCaps.setJavascriptEnabled(true);
-		driver = new FirefoxDriver(firefoxCaps);
+		System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver");
+		//DesiredCapabilities firefoxCaps = new DesiredCapabilities().firefox();
+		//firefoxCaps.setJavascriptEnabled(true);
+		//driver = new FirefoxDriver(firefoxCaps);
+		driver = new FirefoxDriver();
 	  }
 	
 	  @AfterMethod
