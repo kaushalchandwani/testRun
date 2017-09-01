@@ -91,7 +91,7 @@ public class RegisterUserTest
 	  public void beforeMethod() 
 	  {
 		
-		//System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
+		//System.setProperty("webdriver.gecko.driver", "/usr/bin/chromedriver");
 		System.out.println("\n Defining webdriver \n");
 		//System.out.println("main-webdriver.chrome.driver:" + System.getProperty("webdriver.chrome.driver"));
 	
@@ -105,7 +105,7 @@ public class RegisterUserTest
 		//commented for maven 
 		//driver = new ChromeDriver();
 		//System.setProperty("webdriver.chrome.driver", "exe/chromedriver.exe"); //chromedriver.exe set property path
-		
+		System.setProperty("webdriver.gecko.driver", "/usr/bin/iceweasel");
 		DesiredCapabilities firefoxCaps = new DesiredCapabilities().firefox();
 		firefoxCaps.setJavascriptEnabled(true);
 		driver = new FirefoxDriver(firefoxCaps);
