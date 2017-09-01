@@ -109,7 +109,11 @@ public class RegisterUserTest
 		//DesiredCapabilities firefoxCaps = new DesiredCapabilities().firefox();
 		//firefoxCaps.setJavascriptEnabled(true);
 		//driver = new FirefoxDriver(firefoxCaps);
-		driver = new FirefoxDriver();
+		
+		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+		capabilities.setCapability("marionette", true);
+		driver = new FirefoxDriver(capabilities);
+		//driver = new FirefoxDriver();
 	  }
 	
 	  @AfterMethod
