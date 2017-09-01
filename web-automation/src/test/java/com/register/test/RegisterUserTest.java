@@ -90,7 +90,7 @@ public class RegisterUserTest
 	  @BeforeMethod
 	  public void beforeMethod() 
 	  {
-		System.setProperty("webdriver.chrome.driver", "exe/chromedriver.exe"); //chromedriver.exe set property path
+		
 		//System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
 		System.out.println("\n Defining webdriver \n");
 		//System.out.println("main-webdriver.chrome.driver:" + System.getProperty("webdriver.chrome.driver"));
@@ -101,7 +101,14 @@ public class RegisterUserTest
 		DesiredCapabilities capabilities = DesiredCapabilities.chrome(); //Defining capabilities
 		capabilities.setCapability(ChromeOptions.CAPABILITY, options); */
 		//driver = new ChromeDriver(capabilities);
-		driver = new ChromeDriver();
+		
+		//commented for maven 
+		//driver = new ChromeDriver();
+		//System.setProperty("webdriver.chrome.driver", "exe/chromedriver.exe"); //chromedriver.exe set property path
+		
+		DesiredCapabilities firefoxCaps = new DesiredCapabilities().firefox();
+		firefoxCaps.setJavascriptEnabled(true);
+		driver = new FirefoxDriver(firefoxCaps);
 	  }
 	
 	  @AfterMethod
