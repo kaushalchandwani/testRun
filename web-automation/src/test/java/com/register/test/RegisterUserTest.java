@@ -119,8 +119,9 @@ public class RegisterUserTest
 	  @AfterMethod
 	  public void afterMethod() 
 	  {
-		driver.quit();
-		//driver.close();
+		driver.get("about:config");
+		//driver.quit();
+		driver.close();
 	  }
 
 }
