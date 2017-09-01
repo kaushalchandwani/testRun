@@ -28,7 +28,6 @@
   			<configuration>
   				<suiteXmlFiles>
   					<suiteXmlFile>src\test\resources\TestNGSuite.xml</suiteXmlFile>
-  					<suiteXmlFile>src\test\resources\TestNGSuite2.xml</suiteXmlFile>
   				</suiteXmlFiles>
   			</configuration>
   		</plugin>
