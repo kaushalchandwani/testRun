@@ -44,7 +44,7 @@ public class RegisterUserTest
 				throw new NoSuchElementException("Register url not working");
 			}
 			
-			driver.findElement(By.xpath("html/body/div[1]/div/div[2]/div/div[2]/div/a/label")).click();
+			
 			
 			if(driver.getTitle().equalsIgnoreCase("Register with NHS"))
 			{
@@ -55,6 +55,12 @@ public class RegisterUserTest
 			{
 				throw new NoSuchElementException("Register url not working");
 			}*/
+			
+			driver.findElement(By.xpath("html/body/div[1]/div/div[2]/div/div[2]/div/a/label")).click();
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			driver.manage().window().maximize();
+			Thread.sleep(2000);
+			
 			driver.findElement(By.xpath(".//*[@id='email']")).sendKeys(emailId);
 			driver.findElement(By.xpath(".//*[@id='password']")).sendKeys("Welcome123#");
 			driver.findElement(By.xpath(".//*[@id='password-confirm']")).sendKeys("Welcome123#");
