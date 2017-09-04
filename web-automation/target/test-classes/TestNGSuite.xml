@@ -5,6 +5,7 @@
 		<classes>
 		<class name = "com.register.test.DeleteUsersTest"/>
 		<class name = "com.register.test.RegisterUserTest"/>
+		<class name = "com.register.test.RegisterUserTest02"/>
 		
 		</classes>
 	</test>

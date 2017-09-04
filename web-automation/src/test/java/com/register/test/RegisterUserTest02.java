@@ -1,5 +1,4 @@
 package com.register.test;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -16,9 +15,9 @@ import org.testng.annotations.Test;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 
-public class RegisterUserTest 
+public class RegisterUserTest02 
 {
-	  public WebDriver driver;
+	public WebDriver driver;
 	
 	  @Test
 	  public void userRegistration() throws Exception 
@@ -73,18 +72,20 @@ public class RegisterUserTest
 	
 			driver.findElement(By.xpath(".//*[@id='kc-form-wrapper']/form/div[4]/div[2]/input")).click();
 			Thread.sleep(5000);
-			String confirmMailMessage = driver.findElement(By.xpath("html/body/div[1]/div/div[1]/div/div/div/label/label")).getText();
-			String confirmMessage = driver.findElement(By.xpath("html/body/div[1]/div/div[2]/div/div[1]/div/span[2]")).getText();
+			
+		
+			//String confirmMailMessage = driver.findElement(By.xpath("html/body/div[1]/div/div[1]/div/div/div/label/label")).getText();
+			String errorMessage = driver.findElement(By.xpath("html/body/div[1]/div/div[2]/div/div[1]/div/span[2]")).getText();
 	
-			//check page title and then check confirm message
-			if(confirmMailMessage.equalsIgnoreCase("Confirm your email") && confirmMessage.equalsIgnoreCase("We need to verify your email address. Please check your email."))
+			
+			if(errorMessage.equalsIgnoreCase("Email already exists.") )
 			{
-				System.out.println("\nConfirm email Page");
+				System.out.println("\nEmail already exists.");
 	
 			}
 			else
 			{
-				throw new NoSuchElementException("Confirm email not send");
+				throw new NoSuchElementException("Email already check failed");
 			}
 			
 		/*
@@ -130,6 +131,7 @@ public class RegisterUserTest
 	  @AfterMethod
 	  public void afterMethod() 
 	  {
+		  System.out.println("\nClosing webdriver......");
 		driver.get("about:config");
 		//driver.quit();
 		driver.close();
