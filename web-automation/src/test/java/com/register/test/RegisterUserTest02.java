@@ -74,19 +74,28 @@ public class RegisterUserTest02
 			Thread.sleep(5000);
 			
 		
-			//String confirmMailMessage = driver.findElement(By.xpath("html/body/div[1]/div/div[1]/div/div/div/label/label")).getText();
-			String errorMessage = driver.findElement(By.xpath("html/body/div[1]/div/div[2]/div/div[1]/div/span[2]")).getText();
-	
-			
-			if(errorMessage.equalsIgnoreCase("Email already exists.") )
+			if(driver.getTitle().equalsIgnoreCase("Register with NHS"))
 			{
-				System.out.println("\nEmail already exists.");
-	
+				System.out.println("\nRemain on Register Page");
+				String errorMessage = driver.findElement(By.xpath("html/body/div[1]/div/div[2]/div/div[1]/div/span[2]")).getText();
+				
+				
+				if(errorMessage.equalsIgnoreCase("Email already exists.") )
+				{
+					System.out.println("\nEmail already exists.");
+		
+				}
+				else
+				{
+					throw new NoSuchElementException("Email already check failed");
+				}
 			}
 			else
 			{
-				throw new NoSuchElementException("Email already check failed");
+				throw new NoSuchElementException("Register url not working");
 			}
+			//String confirmMailMessage = driver.findElement(By.xpath("html/body/div[1]/div/div[1]/div/div/div/label/label")).getText();
+		
 			
 		/*
 				 html/body/div[1]/div/div[1]/div/div/div --> create nhs account 

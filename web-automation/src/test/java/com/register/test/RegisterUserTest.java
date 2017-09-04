@@ -73,19 +73,32 @@ public class RegisterUserTest
 	
 			driver.findElement(By.xpath(".//*[@id='kc-form-wrapper']/form/div[4]/div[2]/input")).click();
 			Thread.sleep(5000);
-			String confirmMailMessage = driver.findElement(By.xpath("html/body/div[1]/div/div[1]/div/div/div/label/label")).getText();
-			String confirmMessage = driver.findElement(By.xpath("html/body/div[1]/div/div[2]/div/div[1]/div/span[2]")).getText();
+			
 	
 			//check page title and then check confirm message
-			if(confirmMailMessage.equalsIgnoreCase("Confirm your email") && confirmMessage.equalsIgnoreCase("We need to verify your email address. Please check your email."))
+			if(driver.getTitle().equalsIgnoreCase("Confirm your email for NHS"))
 			{
 				System.out.println("\nConfirm email Page");
+				String confirmMailMessage = driver.findElement(By.xpath("html/body/div[1]/div/div[1]/div/div/div")).getText();
+				String confirmMessage = driver.findElement(By.xpath("html/body/div[1]/div/div[2]/div/div[1]/div/span[2]")).getText();
+				
+				if(confirmMailMessage.equalsIgnoreCase("Confirm your email") && confirmMessage.equalsIgnoreCase("We need to verify your email address. Please check your email."))
+				{
+					System.out.println("\nConfirm email Message displayed");
+		
+				}
+				else
+				{
+					throw new NoSuchElementException("Confirm email not send");
+				}
 	
 			}
 			else
 			{
-				throw new NoSuchElementException("Confirm email not send");
+				throw new NoSuchElementException("Confirm email url not working");
 			}
+			
+			
 			
 		/*
 				 html/body/div[1]/div/div[1]/div/div/div --> create nhs account 
