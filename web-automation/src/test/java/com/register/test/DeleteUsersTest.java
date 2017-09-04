@@ -2,7 +2,6 @@ package com.register.test;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -139,7 +138,7 @@ public class DeleteUsersTest
 		  {
 			
 			//System.setProperty("webdriver.gecko.driver", "/usr/bin/chromedriver");
-			System.out.println("\n Defining webdriver \n");
+			System.out.println("\nOpening webdriver \n");
 			//System.out.println("main-webdriver.chrome.driver:" + System.getProperty("webdriver.chrome.driver"));
 		
 			/*ChromeOptions options = new ChromeOptions(); 
@@ -166,6 +165,8 @@ public class DeleteUsersTest
 		  @AfterMethod
 		  public void afterMethod() 
 		  {
+			  System.out.println("\nClosing webdriver......");
+
 			  driverUsers.get("about:config");
 			  //driver.quit();
 			  driverUsers.close();

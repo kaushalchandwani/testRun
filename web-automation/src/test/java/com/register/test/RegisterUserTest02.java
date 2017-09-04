@@ -104,7 +104,7 @@ public class RegisterUserTest02
 	  {
 		
 		//System.setProperty("webdriver.gecko.driver", "/usr/bin/chromedriver");
-		System.out.println("\n Defining webdriver........ \n");
+		System.out.println("\nOpening webdriver........ \n");
 		//System.out.println("main-webdriver.chrome.driver:" + System.getProperty("webdriver.chrome.driver"));
 	
 		/*ChromeOptions options = new ChromeOptions(); 

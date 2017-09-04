@@ -103,7 +103,7 @@ public class RegisterUserTest
 	  {
 		
 		//System.setProperty("webdriver.gecko.driver", "/usr/bin/chromedriver");
-		System.out.println("\n Defining webdriver........ \n");
+		System.out.println("\nOpening webdriver........ \n");
 		//System.out.println("main-webdriver.chrome.driver:" + System.getProperty("webdriver.chrome.driver"));
 	
 		/*ChromeOptions options = new ChromeOptions(); 
@@ -130,6 +130,8 @@ public class RegisterUserTest
 	  @AfterMethod
 	  public void afterMethod() 
 	  {
+		  System.out.println("\nClosing webdriver......");
+
 		driver.get("about:config");
 		//driver.quit();
 		driver.close();
