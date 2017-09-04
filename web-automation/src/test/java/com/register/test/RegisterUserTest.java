@@ -27,39 +27,43 @@ public class RegisterUserTest
 			Date date = new Date();
 			DateFormat dateFormat_extension = new SimpleDateFormat("yyyyMMddHHmmss");
 			String emailId = "abc"+ dateFormat_extension.format(date)+"@example.com";
-			System.out.println("emailid:"+ emailId);
+			emailId = "cid.testuser1@gmail.com";
+			System.out.println("\nUser emailid: "+ emailId);
 					
 			driver.get("https://blue.testlab.nhs.uk/cicauth/realms/NHS/account/");
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			driver.manage().window().maximize();
-			Thread.sleep(2000);
+			Thread.sleep(3000);
 			
-			/*
+			
 			if(driver.getTitle().equalsIgnoreCase("Log in to NHS"))
 			{
-				System.out.println("Login Page");
+				System.out.println("\nLogin Page");
 			}
 			else
 			{
-				throw new NoSuchElementException("Register url not working");
+				throw new NoSuchElementException("Login url is not working");
 			}
 			
 			
 			
+			driver.findElement(By.xpath("html/body/div[1]/div/div[2]/div/div[2]/div/a/label")).click();
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			driver.manage().window().maximize();
+			Thread.sleep(3000);
+			
+			
+
+			
 			if(driver.getTitle().equalsIgnoreCase("Register with NHS"))
 			{
-				System.out.println("Register Page");
+				System.out.println("\nRegister Page");
 	
 			}
 			else
 			{
 				throw new NoSuchElementException("Register url not working");
-			}*/
-			
-			driver.findElement(By.xpath("html/body/div[1]/div/div[2]/div/div[2]/div/a/label")).click();
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-			driver.manage().window().maximize();
-			Thread.sleep(2000);
+			}
 			
 			driver.findElement(By.xpath(".//*[@id='email']")).sendKeys(emailId);
 			driver.findElement(By.xpath(".//*[@id='password']")).sendKeys("Welcome123#");
@@ -75,7 +79,7 @@ public class RegisterUserTest
 			
 			if(confirmMailMessage.equalsIgnoreCase("Confirm your email") && confirmMessage.equalsIgnoreCase("We need to verify your email address. Please check your email."))
 			{
-				System.out.println("Confirm email Page");
+				System.out.println("\nConfirm email Page");
 	
 			}
 			else
@@ -99,7 +103,7 @@ public class RegisterUserTest
 	  {
 		
 		//System.setProperty("webdriver.gecko.driver", "/usr/bin/chromedriver");
-		System.out.println("\n Defining webdriver \n");
+		System.out.println("\n Defining webdriver........ \n");
 		//System.out.println("main-webdriver.chrome.driver:" + System.getProperty("webdriver.chrome.driver"));
 	
 		/*ChromeOptions options = new ChromeOptions(); 
