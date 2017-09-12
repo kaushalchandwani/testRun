@@ -36,7 +36,8 @@ public class DeleteUsersTest
 				
 				driverUsers.get(url_admin_console);
 				driverUsers.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-				
+				driverUsers.manage().window().maximize();
+
 				driverUsers.findElement(By.xpath(".//*[@id='username']")).sendKeys(UserName_realm_admin);
 				driverUsers.findElement(By.xpath(".//*[@id='password']")).sendKeys(Password_realm_admin);	
 				Thread.sleep(2000);
@@ -58,7 +59,7 @@ public class DeleteUsersTest
 				int countRows = rows.size();
 				//System.out.println("ROW COUNT : "+countRows);
 				
-				List<WebElement> columns = driverUsers.findElements(By.xpath(".//*[@id='view']/div[1]/table/tbody/tr[2]/td"));
+				List<WebElement> columns = driverUsers.findElements(By.xpath(".//*[@id='view']/div[1]/table/tbody/tr[1]/td"));
 				int countColumns = columns.size();
 				//System.out.println("ROW COUNT : "+countColumns);
 				
@@ -138,7 +139,6 @@ public class DeleteUsersTest
 		  {
 			
 			//System.setProperty("webdriver.gecko.driver", "/usr/bin/chromedriver");
-			System.out.println("\nOpening webdriver \n");
 			//System.out.println("main-webdriver.chrome.driver:" + System.getProperty("webdriver.chrome.driver"));
 		
 			/*ChromeOptions options = new ChromeOptions(); 
@@ -148,18 +148,18 @@ public class DeleteUsersTest
 			capabilities.setCapability(ChromeOptions.CAPABILITY, options); */
 			//driver = new ChromeDriver(capabilities);
 			
+			System.out.println("\nOpening webdriver \n");
+
 			//commented for maven 
-			//driver = new ChromeDriver();
 			//System.setProperty("webdriver.chrome.driver", "exe/chromedriver.exe"); //chromedriver.exe set property path
-			System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver");
-			//DesiredCapabilities firefoxCaps = new DesiredCapabilities().firefox();
-			//firefoxCaps.setJavascriptEnabled(true);
-			//driver = new FirefoxDriver(firefoxCaps);
+			//driverUsers = new ChromeDriver();
+
 			
+			System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver");
 			DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 			capabilities.setCapability("marionette", true);
 			driverUsers = new FirefoxDriver(capabilities);
-			//driver = new FirefoxDriver();
+			
 		  }
 		
 		  @AfterMethod

@@ -116,7 +116,6 @@ public class RegisterUserTest
 	  {
 		
 		//System.setProperty("webdriver.gecko.driver", "/usr/bin/chromedriver");
-		System.out.println("\nOpening webdriver........ \n");
 		//System.out.println("main-webdriver.chrome.driver:" + System.getProperty("webdriver.chrome.driver"));
 	
 		/*ChromeOptions options = new ChromeOptions(); 
@@ -126,18 +125,18 @@ public class RegisterUserTest
 		capabilities.setCapability(ChromeOptions.CAPABILITY, options); */
 		//driver = new ChromeDriver(capabilities);
 		
+		System.out.println("\nOpening webdriver \n");
+
 		//commented for maven 
-		//driver = new ChromeDriver();
 		//System.setProperty("webdriver.chrome.driver", "exe/chromedriver.exe"); //chromedriver.exe set property path
-		System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver");
-		//DesiredCapabilities firefoxCaps = new DesiredCapabilities().firefox();
-		//firefoxCaps.setJavascriptEnabled(true);
-		//driver = new FirefoxDriver(firefoxCaps);
+		//driver = new ChromeDriver();
+
 		
+		System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver");
 		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 		capabilities.setCapability("marionette", true);
 		driver = new FirefoxDriver(capabilities);
-		//driver = new FirefoxDriver();
+		
 	  }
 	
 	  @AfterMethod
