@@ -16,6 +16,8 @@ import org.testng.annotations.Test;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 
+import com.register.config.*;
+
 public class RegisterUserTest 
 {
 	  public WebDriver driver;
@@ -26,9 +28,9 @@ public class RegisterUserTest
 		//define date format for mail id
 			Date date = new Date();
 			DateFormat dateFormat_extension = new SimpleDateFormat("yyyyMMddHHmmss");
-			String emailId = "abc"+ dateFormat_extension.format(date)+"@example.com";
-			emailId = "cid.testuser1@gmail.com";
-			System.out.println("\nUser emailid: "+ emailId);
+			//String emailId = "abc"+ dateFormat_extension.format(date)+"@example.com";
+			//emailId = "cid.testuser1@gmail.com";
+			System.out.println("\nUser emailid: "+ Constant.username_Patient);
 					
 			driver.get("https://blue.testlab.nhs.uk/cicauth/realms/NHS/account/");
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -65,13 +67,13 @@ public class RegisterUserTest
 				throw new NoSuchElementException("Register url not working");
 			}
 			
-			driver.findElement(By.xpath(".//*[@id='email']")).sendKeys(emailId);
-			driver.findElement(By.xpath(".//*[@id='password']")).sendKeys("Welcome123#");
-			driver.findElement(By.xpath(".//*[@id='password-confirm']")).sendKeys("Welcome123#");
+			driver.findElement(By.xpath(".//*[@id='email']")).sendKeys(Constant.username_Patient);
+			driver.findElement(By.xpath(".//*[@id='password']")).sendKeys(Constant.password_Patient);
+			driver.findElement(By.xpath(".//*[@id='password-confirm']")).sendKeys(Constant.password_Patient);
 	
 			Thread.sleep(2000);
 	
-			driver.findElement(By.xpath(".//*[@id='kc-form-wrapper']/form/div[4]/div[2]/input")).click();
+			driver.findElement(By.xpath(".//*[@id='kc-form-wrapper']/form/div[4]/div[1]/input")).click();
 			Thread.sleep(5000);
 			
 	
@@ -132,10 +134,24 @@ public class RegisterUserTest
 		//driver = new ChromeDriver();
 
 		
+		/*
 		System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver");
 		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 		capabilities.setCapability("marionette", true);
 		driver = new FirefoxDriver(capabilities);
+		*/
+		if(Constant.environmentVariable.equalsIgnoreCase("local"))
+	  	{
+			System.setProperty("webdriver.chrome.driver", "exe/chromedriver.exe"); //chromedriver.exe set property path
+			driver = new ChromeDriver();
+	  	}
+	  	else
+	  	{
+	  		System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver");
+			DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+			capabilities.setCapability("marionette", true);
+			driver = new FirefoxDriver(capabilities);
+	  	}
 		
 	  }
 	

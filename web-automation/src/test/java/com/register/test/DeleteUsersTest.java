@@ -4,6 +4,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.register.config.*;
+
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -26,9 +28,9 @@ public class DeleteUsersTest
 		
 					
 			String url_admin_console ="https://blue.testlab.nhs.uk/cicauth/admin/NHS/console";
-			String UserName_realm_admin="realmadmin";
-			String Password_realm_admin ="Welcome123";
-			String Patient_email_id="cid.testuser1@gmail.com";
+			//String UserName_realm_admin="realmadmin";
+			//String Password_realm_admin ="Welcome123";
+			//String Patient_email_id="cid.testuser1@gmail.com";
 			boolean deleteUserStatus = false;	
 			
 				
@@ -38,8 +40,8 @@ public class DeleteUsersTest
 				driverUsers.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 				driverUsers.manage().window().maximize();
 
-				driverUsers.findElement(By.xpath(".//*[@id='username']")).sendKeys(UserName_realm_admin);
-				driverUsers.findElement(By.xpath(".//*[@id='password']")).sendKeys(Password_realm_admin);	
+				driverUsers.findElement(By.xpath(".//*[@id='username']")).sendKeys(Constant.username_realmAdmin);
+				driverUsers.findElement(By.xpath(".//*[@id='password']")).sendKeys(Constant.password_realmAdmin);	
 				Thread.sleep(2000);
 				driverUsers.findElement(By.xpath(".//*[@id='kc-login']")).click();
 				driverUsers.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -75,7 +77,7 @@ public class DeleteUsersTest
 						{
 							sColumnValue= driverUsers.findElement(By.xpath(xpathVariable)).getText();
 							//System.out.println("Column value: "+ sColumnValue);
-							if(sColumnValue.equalsIgnoreCase(Patient_email_id))
+							if(sColumnValue.equalsIgnoreCase(Constant.username_Patient))
 							{
 								deleteVariable = true;
 							}
@@ -154,11 +156,24 @@ public class DeleteUsersTest
 			//System.setProperty("webdriver.chrome.driver", "exe/chromedriver.exe"); //chromedriver.exe set property path
 			//driverUsers = new ChromeDriver();
 
-			
+			/*
 			System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver");
 			DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 			capabilities.setCapability("marionette", true);
-			driverUsers = new FirefoxDriver(capabilities);
+			driver = new FirefoxDriver(capabilities);
+			*/
+			if(Constant.environmentVariable.equalsIgnoreCase("local"))
+		  	{
+				System.setProperty("webdriver.chrome.driver", "exe/chromedriver.exe"); //chromedriver.exe set property path
+				driverUsers = new ChromeDriver();
+		  	}
+		  	else
+		  	{
+		  		System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver");
+				DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+				capabilities.setCapability("marionette", true);
+				driverUsers = new FirefoxDriver(capabilities);
+		  	}
 			
 		  }
 		

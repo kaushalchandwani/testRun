@@ -15,6 +15,8 @@ import org.testng.annotations.Test;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 
+import com.register.config.Constant;
+
 public class VerifyEmailTest 
 {
 	  public WebDriver driverEmail;
@@ -33,8 +35,15 @@ public class VerifyEmailTest
 		String verifyEmailVerificationLink="";
 		String verifyPageMessage02="";
 		
-	  	//driverEmail.get("http://localhost:9999/");
-	  	driverEmail.get("http://172.17.0.1:1080");
+	  	
+	  	if(Constant.environmentVariable.equalsIgnoreCase("local"))
+	  	{
+	  		driverEmail.get("http://localhost:9999/");
+	  	}
+	  	else
+	  	{
+	  		driverEmail.get("http://172.17.0.1:1080");
+	  	}
 
 	  	driverEmail.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	  	driverEmail.manage().window().maximize();
@@ -54,11 +63,11 @@ public class VerifyEmailTest
 		
 		List<WebElement> rows =   (List<WebElement>) driverEmail.findElements(By.xpath(".//*[@id='messages']/table/tbody/tr"));
 		int countRows = rows.size();
-		System.out.println("\nROW COUNT : "+countRows);
+		//System.out.println("\nROW COUNT : "+countRows);
 		
 		List<WebElement> columns = driverEmail.findElements(By.xpath(".//*[@id='messages']/table/tbody/tr[1]/td"));
 		int countColumns = columns.size();
-		System.out.println("\nCOL COUNT : "+countColumns);
+		//System.out.println("\nCOL COUNT : "+countColumns);
 		
 		for (int i=1;i<countRows;i++)
 		{
@@ -75,20 +84,23 @@ public class VerifyEmailTest
 				if(elementStatus)
 				{
 					sColumnValue= driverEmail.findElement(By.xpath(xpathVariable)).getText();
-					System.out.println("\nColumn value: "+ sColumnValue);
+					//System.out.println("\nColumn value: "+ sColumnValue);
 					if(sColumnValue.matches("<citizen.identity1@gmail.com>"))
 					{
+						//System.out.println("\nEmail sender id: "+ sColumnValue);
 						emailSender = true;
 					}
 					
 						
 					if(emailSender && sColumnValue.matches("<cid.testuser1@gmail.com>"))
 					{
+						//System.out.println("\nEmail receipient id: "+ sColumnValue);
 						emailReceiver=true;
 					    
 					}
 					if(emailReceiver && sColumnValue.matches("Verify email"))
 					{
+						//System.out.println("\nSubject: "+ sColumnValue);
 						emailSubject =true;
 					}
 					if(emailSubject)
@@ -127,7 +139,7 @@ public class VerifyEmailTest
 			//System.out.println("\nVerify Email Link: " + verifyEmailVerificationLink);
 
 			verifyPageMessage01= driverEmail.findElement(By.xpath("html/body/table/tbody/tr/td/div/table/tbody/tr/td/table/tbody/tr/td/span")).getText();
-			System.out.println("\nVerification email content: \n"+verifyPageMessage01);
+			System.out.println("\n\nVerification email content: \n"+verifyPageMessage01 + "\n");
 			
 			//now click on verify and navigate to new link
 			
@@ -152,47 +164,52 @@ public class VerifyEmailTest
 				
 				
 				//verify page title
-				String xpathBackToLogin = ".//*[@id='kc-info-message']/p[2]/a";
-				boolean elementStatus = com.register.utility.CheckElement.existsElement(xpathBackToLogin,driverEmail);
-				Thread.sleep(1000);
-
-				if(elementStatus)
+				if(driverEmail.getTitle().equalsIgnoreCase("Your email address has been verified."))
 				{
-					String verificationMessage=driverEmail.findElement(By.xpath(".//*[@id='kc-info-message']/p[1]")).getText();
-					System.out.println("\nSuccessful email verification message: "+verificationMessage);
+					String xpathBackToLogin = ".//*[@id='kc-info-message']/div/div/label/a";
+					//verify element is present on page or not
+					boolean elementStatus = com.register.utility.CheckElement.existsElement(xpathBackToLogin,driverEmail);
 					Thread.sleep(1000);
-					
-					//continue to login page 
-					driverEmail.findElement(By.xpath(xpathBackToLogin)).click();
-					driverEmail.manage().window().maximize();
-					Thread.sleep(1000);
-					
-					//check whether successsfully navigated to login page or not
-					if(driverEmail.getTitle().equalsIgnoreCase("Log in to NHS"))
-					{
-						System.out.println("\nBack to application...");
 
-						System.out.println("\nLogin Page");
+					if(elementStatus)
+					{
+						String verificationMessage=driverEmail.findElement(By.xpath("html/body/div[1]/div/div[1]/div/div/div")).getText();
+						System.out.println("\n\nSuccessful email verification message: "+verificationMessage);
+						Thread.sleep(1000);
+						
+						//continue to login page 
+						driverEmail.findElement(By.xpath(xpathBackToLogin)).click();
+						driverEmail.manage().window().maximize();
+						Thread.sleep(1000);
+						
+						//check whether successfully navigated to login page or not
+						if(driverEmail.getTitle().equalsIgnoreCase("Log in to NHS"))
+						{
+							System.out.println("\nBack to application...");
+
+							System.out.println("\nLogin Page");
+						}
+						else
+						{
+							throw new NoSuchElementException("\nNavigation back to login page failed");
+						}
+						
+						//closing driver of current tab
+						driverEmail.close();
+						//switch to old main tab
+						driverEmail.switchTo().window(currentPageHandle);
+						driverEmail.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+						Thread.sleep(1000);
+						
+						emailConfirmationStatus =true;
+						
 					}
 					else
 					{
-						throw new NoSuchElementException("\nNavigation back to login page failed");
+						//throw new NoSuchElementException("Sorry !!! \n Email verification is unsuccessfull.....");
 					}
-					
-					//closing driver of current tab
-					driverEmail.close();
-					//switch to old main tab
-					driverEmail.switchTo().window(currentPageHandle);
-					driverEmail.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-					Thread.sleep(1000);
-					
-					emailConfirmationStatus =true;
-					
 				}
-				else
-				{
-					//throw new NoSuchElementException("Sorry !!! \n Email verification is unsuccessfull.....");
-				}
+				
 
 			}
 			//String pageTitle = driverTabs.getTitle();  //pagetitle
@@ -238,11 +255,26 @@ public class VerifyEmailTest
 		//System.setProperty("webdriver.chrome.driver", "exe/chromedriver.exe"); //chromedriver.exe set property path
 		//driverEmail = new ChromeDriver();
 
-		
+		/*
 		System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver");
 		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 		capabilities.setCapability("marionette", true);
 		driverEmail = new FirefoxDriver(capabilities);
+		*/
+		if(Constant.environmentVariable.equalsIgnoreCase("local"))
+	  	{
+			System.setProperty("webdriver.chrome.driver", "exe/chromedriver.exe"); //chromedriver.exe set property path
+			driverEmail = new ChromeDriver();
+	  	}
+	  	else
+	  	{
+	  		System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver");
+			DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+			capabilities.setCapability("marionette", true);
+			driverEmail = new FirefoxDriver(capabilities);
+	  	}
+		
+		
 		
   }
 
