@@ -2,62 +2,62 @@
 <testng-results skipped="0" failed="0" total="4" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="Test - Suite" duration-ms="102259" started-at="2017-09-12T14:08:57Z" finished-at="2017-09-12T14:10:39Z">
+  <suite name="Test - Suite" duration-ms="100679" started-at="2017-09-12T14:38:37Z" finished-at="2017-09-12T14:40:18Z">
     <groups>
     </groups>
-    <test name="Register_And_Verify_User_Account" duration-ms="102259" started-at="2017-09-12T14:08:57Z" finished-at="2017-09-12T14:10:39Z">
+    <test name="Register_And_Verify_User_Account" duration-ms="100679" started-at="2017-09-12T14:38:37Z" finished-at="2017-09-12T14:40:18Z">
       <class name="com.register.test.VerifyEmailTest">
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.register.test.VerifyEmailTest@5e3a8624]" name="beforeMethod" is-config="true" duration-ms="2480" started-at="2017-09-12T15:10:07Z" finished-at="2017-09-12T15:10:10Z">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.register.test.VerifyEmailTest@5e3a8624]" name="beforeMethod" is-config="true" duration-ms="2526" started-at="2017-09-12T15:39:47Z" finished-at="2017-09-12T15:39:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="verifyEmail()[pri:0, instance:com.register.test.VerifyEmailTest@5e3a8624]" name="verifyEmail" duration-ms="28121" started-at="2017-09-12T15:10:10Z" finished-at="2017-09-12T15:10:38Z">
+        <test-method status="PASS" signature="verifyEmail()[pri:0, instance:com.register.test.VerifyEmailTest@5e3a8624]" name="verifyEmail" duration-ms="27898" started-at="2017-09-12T15:39:49Z" finished-at="2017-09-12T15:40:17Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyEmail -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.register.test.VerifyEmailTest@5e3a8624]" name="afterMethod" is-config="true" duration-ms="945" started-at="2017-09-12T15:10:38Z" finished-at="2017-09-12T15:10:39Z">
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.register.test.VerifyEmailTest@5e3a8624]" name="afterMethod" is-config="true" duration-ms="754" started-at="2017-09-12T15:40:17Z" finished-at="2017-09-12T15:40:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
       </class> <!-- com.register.test.VerifyEmailTest -->
       <class name="com.register.test.DeleteUsersTest">
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.register.test.DeleteUsersTest@42d80b78]" name="beforeMethod" is-config="true" duration-ms="3603" started-at="2017-09-12T15:08:57Z" finished-at="2017-09-12T15:09:00Z">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.register.test.DeleteUsersTest@42d80b78]" name="beforeMethod" is-config="true" duration-ms="3532" started-at="2017-09-12T15:38:37Z" finished-at="2017-09-12T15:38:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="deleteUsersProfile()[pri:0, instance:com.register.test.DeleteUsersTest@42d80b78]" name="deleteUsersProfile" duration-ms="25210" started-at="2017-09-12T15:09:00Z" finished-at="2017-09-12T15:09:26Z">
+        <test-method status="PASS" signature="deleteUsersProfile()[pri:0, instance:com.register.test.DeleteUsersTest@42d80b78]" name="deleteUsersProfile" duration-ms="24184" started-at="2017-09-12T15:38:41Z" finished-at="2017-09-12T15:39:05Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deleteUsersProfile -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.register.test.DeleteUsersTest@42d80b78]" name="afterMethod" is-config="true" duration-ms="829" started-at="2017-09-12T15:09:26Z" finished-at="2017-09-12T15:09:26Z">
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.register.test.DeleteUsersTest@42d80b78]" name="afterMethod" is-config="true" duration-ms="837" started-at="2017-09-12T15:39:05Z" finished-at="2017-09-12T15:39:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
       </class> <!-- com.register.test.DeleteUsersTest -->
       <class name="com.register.test.RegisterUserTest">
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.register.test.RegisterUserTest@3bfdc050]" name="beforeMethod" is-config="true" duration-ms="2430" started-at="2017-09-12T15:09:26Z" finished-at="2017-09-12T15:09:29Z">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.register.test.RegisterUserTest@3bfdc050]" name="beforeMethod" is-config="true" duration-ms="3028" started-at="2017-09-12T15:39:06Z" finished-at="2017-09-12T15:39:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="userRegistration()[pri:0, instance:com.register.test.RegisterUserTest@3bfdc050]" name="userRegistration" duration-ms="17677" started-at="2017-09-12T15:09:29Z" finished-at="2017-09-12T15:09:46Z">
+        <test-method status="PASS" signature="userRegistration()[pri:0, instance:com.register.test.RegisterUserTest@3bfdc050]" name="userRegistration" duration-ms="17039" started-at="2017-09-12T15:39:09Z" finished-at="2017-09-12T15:39:26Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- userRegistration -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.register.test.RegisterUserTest@3bfdc050]" name="afterMethod" is-config="true" duration-ms="732" started-at="2017-09-12T15:09:46Z" finished-at="2017-09-12T15:09:47Z">
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.register.test.RegisterUserTest@3bfdc050]" name="afterMethod" is-config="true" duration-ms="745" started-at="2017-09-12T15:39:26Z" finished-at="2017-09-12T15:39:26Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
       </class> <!-- com.register.test.RegisterUserTest -->
       <class name="com.register.test.RegisterUserTest02">
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.register.test.RegisterUserTest02@1bce4f0a]" name="beforeMethod" is-config="true" duration-ms="2430" started-at="2017-09-12T15:09:47Z" finished-at="2017-09-12T15:09:50Z">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.register.test.RegisterUserTest02@1bce4f0a]" name="beforeMethod" is-config="true" duration-ms="2531" started-at="2017-09-12T15:39:26Z" finished-at="2017-09-12T15:39:29Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="userRegistration()[pri:0, instance:com.register.test.RegisterUserTest02@1bce4f0a]" name="userRegistration" duration-ms="16872" started-at="2017-09-12T15:09:50Z" finished-at="2017-09-12T15:10:07Z">
+        <test-method status="PASS" signature="userRegistration()[pri:0, instance:com.register.test.RegisterUserTest02@1bce4f0a]" name="userRegistration" duration-ms="16799" started-at="2017-09-12T15:39:29Z" finished-at="2017-09-12T15:39:46Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- userRegistration -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.register.test.RegisterUserTest02@1bce4f0a]" name="afterMethod" is-config="true" duration-ms="907" started-at="2017-09-12T15:10:07Z" finished-at="2017-09-12T15:10:07Z">
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.register.test.RegisterUserTest02@1bce4f0a]" name="afterMethod" is-config="true" duration-ms="785" started-at="2017-09-12T15:39:46Z" finished-at="2017-09-12T15:39:47Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->

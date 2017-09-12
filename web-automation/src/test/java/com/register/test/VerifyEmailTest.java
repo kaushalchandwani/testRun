@@ -114,8 +114,8 @@ public class VerifyEmailTest
 		
 		if(clickVerifyEmail)
 		{
-			
-			driverEmail.findElement(By.xpath(".//*[@id='message']/header/nav/ul/li[2]/a")).click();
+			//li[1] for html and li[2] for plain text --- two diff tabs 
+			driverEmail.findElement(By.xpath(".//*[@id='message']/header/nav/ul/li[1]/a")).click();
 		  	driverEmail.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			Thread.sleep(1000);
 			
@@ -123,24 +123,11 @@ public class VerifyEmailTest
 			driverEmail.switchTo().frame(driverEmail.findElement(By.tagName("iframe")));
 
 			
-			verifyEmailVerificationLink= driverEmail.findElement(By.xpath("xhtml:html/xhtml:body/xhtml:a")).getText();
-			//String verifyPageMessage01= driverEmail.findElement(By.xpath("html/body/span/p[1]")).getText();
+			//verifyEmailVerificationLink= driverEmail.findElement(By.xpath("xhtml:html/xhtml:body/xhtml:a")).getText();
+			//System.out.println("\nVerify Email Link: " + verifyEmailVerificationLink);
 
-			//verifyPageMessage02= driverEmail.findElement(By.xpath("html/body/span/p[2]")).getText();
-			
-			//verifyEmailVerificationLink= driverEmail.findElement(By.xpath("html/body/table/tbody/tr/td/div/table/tbody/tr/td/table/tbody/tr/td/span/strong/a")).getText();
-			
-			/*WebDriverWait wait = new WebDriverWait(driverEmail, 10);
-			WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Verify my account")));
-			String bodyText = element.getText();
-			*/
-			//System.out.println(driverEmail.findElement(By.xpath("xhtml:html/xhtml:body/xhtml:pre")).getText());
-			
-					
-						
-			//System.out.println("\nVerification mail: \n"+verifyPageHeader);
-			System.out.println("\nVerify Email Link: " + verifyEmailVerificationLink);
-			
+			verifyPageMessage01= driverEmail.findElement(By.xpath("html/body/table/tbody/tr/td/div/table/tbody/tr/td/table/tbody/tr/td/span")).getText();
+			System.out.println("\nVerification email content: \n"+verifyPageMessage01);
 			
 			//now click on verify and navigate to new link
 			
@@ -148,7 +135,9 @@ public class VerifyEmailTest
 			String currentPageHandle = driverEmail.getWindowHandle();
 			String pageUrl = driverEmail.getCurrentUrl(); //pageurl
 			//click the link to check 
-			driverEmail.findElement(By.xpath("xhtml:html/xhtml:body/xhtml:a")).click();
+			//driverEmail.findElement(By.xpath("xhtml:html/xhtml:body/xhtml:a")).click();
+			driverEmail.findElement(By.xpath("html/body/table/tbody/tr/td/div/table/tbody/tr/td/table/tbody/tr/td/span/a")).click();
+
 			//add wait
 			driverEmail.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			driverEmail.manage().window().maximize();

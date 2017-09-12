@@ -134,6 +134,7 @@ public class RegisterUserTest02
 		capabilities.setCapability("marionette", true);
 		driver = new FirefoxDriver(capabilities);
 		
+		
 	  }
 	
 	  @AfterMethod
