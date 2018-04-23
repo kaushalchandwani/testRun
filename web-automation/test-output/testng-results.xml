@@ -1,67 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="4" passed="4">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Test - Suite" duration-ms="94987" started-at="2017-09-12T15:34:02Z" finished-at="2017-09-12T15:35:37Z">
+  <suite name="Test - Suite" duration-ms="456" started-at="2018-02-27T12:58:42Z" finished-at="2018-02-27T12:58:43Z">
     <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.cucumber.runner.TestRunner@402a079c]" name="feature" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
     </groups>
-    <test name="Register_And_Verify_User_Account" duration-ms="94987" started-at="2017-09-12T15:34:02Z" finished-at="2017-09-12T15:35:37Z">
-      <class name="com.register.test.VerifyEmailTest">
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.register.test.VerifyEmailTest@91161c7]" name="beforeMethod" is-config="true" duration-ms="2478" started-at="2017-09-12T16:35:15Z" finished-at="2017-09-12T16:35:17Z">
+    <test name="Register_And_Verify_User_Account" duration-ms="456" started-at="2018-02-27T12:58:42Z" finished-at="2018-02-27T12:58:43Z">
+      <class name="com.cucumber.runner.TestRunner">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:com.cucumber.runner.TestRunner@402a079c]" test-instance-name="" name="setUpClass" is-config="true" duration-ms="293" started-at="2018-02-27T12:58:43Z" finished-at="2018-02-27T12:58:43Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="verifyEmail()[pri:0, instance:com.register.test.VerifyEmailTest@91161c7]" name="verifyEmail" duration-ms="18171" started-at="2017-09-12T16:35:17Z" finished-at="2017-09-12T16:35:36Z">
+        </test-method> <!-- setUpClass -->
+        <test-method status="PASS" signature="before()[pri:0, instance:com.cucumber.runner.TestRunner@402a079c]" test-instance-name="" name="before" is-config="true" duration-ms="1" started-at="2018-02-27T12:58:43Z" finished-at="2018-02-27T12:58:43Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyEmail -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.register.test.VerifyEmailTest@91161c7]" name="afterMethod" is-config="true" duration-ms="1322" started-at="2017-09-12T16:35:36Z" finished-at="2017-09-12T16:35:37Z">
+        </test-method> <!-- before -->
+        <test-method name="feature" test-instance-name="" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.cucumber.runner.TestRunner@402a079c]" status="PASS" duration-ms="31" finished-at="2018-02-27T12:58:43Z" started-at="2018-02-27T12:58:43Z" data-provider="features" description="Runs Cucumber Feature">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[User Registration: 	As I user, I want to register successfully with NHS Account and login with two-factor authentication.]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- afterMethod -->
-      </class> <!-- com.register.test.VerifyEmailTest -->
-      <class name="com.register.test.DeleteUsersTest">
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.register.test.DeleteUsersTest@1bce4f0a]" name="beforeMethod" is-config="true" duration-ms="3663" started-at="2017-09-12T16:34:02Z" finished-at="2017-09-12T16:34:06Z">
+        </test-method> <!-- feature -->
+        <test-method status="PASS" signature="after()[pri:0, instance:com.cucumber.runner.TestRunner@402a079c]" test-instance-name="" name="after" is-config="true" duration-ms="1" started-at="2018-02-27T12:58:43Z" finished-at="2018-02-27T12:58:43Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="deleteUsersProfile()[pri:0, instance:com.register.test.DeleteUsersTest@1bce4f0a]" name="deleteUsersProfile" duration-ms="24967" started-at="2017-09-12T16:34:06Z" finished-at="2017-09-12T16:34:31Z">
+        </test-method> <!-- after -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:com.cucumber.runner.TestRunner@402a079c]" test-instance-name="" name="tearDownClass" is-config="true" duration-ms="14" started-at="2018-02-27T12:58:43Z" finished-at="2018-02-27T12:58:43Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- deleteUsersProfile -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.register.test.DeleteUsersTest@1bce4f0a]" name="afterMethod" is-config="true" duration-ms="821" started-at="2017-09-12T16:34:31Z" finished-at="2017-09-12T16:34:31Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-      </class> <!-- com.register.test.DeleteUsersTest -->
-      <class name="com.register.test.RegisterUserTest">
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.register.test.RegisterUserTest@5e3a8624]" name="beforeMethod" is-config="true" duration-ms="2939" started-at="2017-09-12T16:34:31Z" finished-at="2017-09-12T16:34:34Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="userRegistration()[pri:0, instance:com.register.test.RegisterUserTest@5e3a8624]" name="userRegistration" duration-ms="17414" started-at="2017-09-12T16:34:34Z" finished-at="2017-09-12T16:34:52Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- userRegistration -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.register.test.RegisterUserTest@5e3a8624]" name="afterMethod" is-config="true" duration-ms="995" started-at="2017-09-12T16:34:52Z" finished-at="2017-09-12T16:34:53Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-      </class> <!-- com.register.test.RegisterUserTest -->
-      <class name="com.register.test.RegisterUserTest02">
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.register.test.RegisterUserTest02@5c3bd550]" name="beforeMethod" is-config="true" duration-ms="2535" started-at="2017-09-12T16:34:53Z" finished-at="2017-09-12T16:34:55Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="userRegistration()[pri:0, instance:com.register.test.RegisterUserTest02@5c3bd550]" name="userRegistration" duration-ms="17100" started-at="2017-09-12T16:34:55Z" finished-at="2017-09-12T16:35:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- userRegistration -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.register.test.RegisterUserTest02@5c3bd550]" name="afterMethod" is-config="true" duration-ms="2535" started-at="2017-09-12T16:35:12Z" finished-at="2017-09-12T16:35:15Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-      </class> <!-- com.register.test.RegisterUserTest02 -->
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- com.cucumber.runner.TestRunner -->
     </test> <!-- Register_And_Verify_User_Account -->
   </suite> <!-- Test - Suite -->
 </testng-results>

@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Test - Suite">
+<suite name="Test - Suite" preserve-order="true">
 	<test name="Register_And_Verify_User_Account">
 		<classes>
-		<class name = "com.register.test.DeleteUsersTest"/>
-		<class name = "com.register.test.RegisterUserTest"/>
-		<class name = "com.register.test.RegisterUserTest02"/>
-		<class name = "com.register.test.VerifyEmailTest"/>
-				
+		
+				<class name = "com.cucumber.runner.TestRunner"/>
 		</classes>
 	</test>
 </suite>

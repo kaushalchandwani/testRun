@@ -3,10 +3,7 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Test - Suite]">
   <test name="Register_And_Verify_User_Account">
     <classes>
-      <class name="com.register.test.DeleteUsersTest"/>
-      <class name="com.register.test.RegisterUserTest"/>
-      <class name="com.register.test.RegisterUserTest02"/>
-      <class name="com.register.test.VerifyEmailTest"/>
+      <class name="com.cucumber.runner.TestRunner"/>
     </classes>
   </test> <!-- Register_And_Verify_User_Account -->
 </suite> <!-- Failed suite [Test - Suite] -->

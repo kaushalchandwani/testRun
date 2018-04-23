@@ -1,20 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Test - Suite]">
-  <test name="NewTest">
+  <test name="Register_And_Verify_User_Account">
     <classes>
-      <class name="com.register.test.RegisterUserTest"/>
+      <class name="com.cucumber.runner.TestRunner"/>
     </classes>
-  </test> <!-- NewTest -->
-  <test name="NewTest(failed)">
-    <classes>
-      <class name="com.register.test.RegisterUserTest">
-        <methods>
-          <include name="afterMethod"/>
-          <include name="beforeMethod"/>
-          <include name="userRegistration"/>
-        </methods>
-      </class> <!-- com.register.test.RegisterUserTest -->
-    </classes>
-  </test> <!-- NewTest(failed) -->
+  </test> <!-- Register_And_Verify_User_Account -->
 </suite> <!-- Failed suite [Test - Suite] -->
